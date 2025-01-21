@@ -1,4 +1,4 @@
-package com.example.jpa.domain.post.post.entity;
+package com.example.jpa.domain.post.comment.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @EntityListeners(AuditingEntityListener.class)
-public class Post {
+public class Comment {
     @Id // PRIMARY KEY
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT
     @Setter(AccessLevel.PRIVATE)
@@ -29,8 +29,8 @@ public class Post {
     @Setter(AccessLevel.PRIVATE)
     private LocalDateTime modifiedDate;
 
-    @Column(length = 100)
-    private String title;
+    private long postId;
+
     @Column(columnDefinition = "TEXT")
     private String body;
 
